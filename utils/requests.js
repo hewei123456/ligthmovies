@@ -4,33 +4,29 @@ const baseUrl = 'http://47.94.214.83:8000/';
 
 const goodsApi = baseUrl + 'goods';
 
-const http = (url, func, funcerr) => {
-  // let new Promise()
-  wx.request({
-    url: url,
-    data: {},
-    header: {
-      'Authorization': `Token ${token}`
-    },
-    method: 'GET',
-    success(res) {
-      func(res);
-    },
-    fail(err) {
-      console.log(err);
-      funcerr(err);
-    }
-  });
+const http = (url, data, method) => {
+  return new Promise((resolve, reject) => {
+    wx.request({
+      url,
+      data, 
+      header: {
+        'Authorization': `Token ${token}`
+      },
+      method,
+      success(response) {
+        resolve(response);
+      },
+      fail(error) {
+        reject(error);
+      }
+    });
+  })
 };
 
-const getGoods = (url) => {
-  http(goodsApi, data => {
-    console.log(data);
-  }, err => {
-
-  });
+const getGoods = () => {
+  return http(goodsApi, {}, 'GET');
 };
 
 module.exports = {
-  getGoods: getGoods
+  getGoods
 };
