@@ -1,6 +1,5 @@
 const utils = require('./utils/util.js');
 
-//app.js
 App({
   onLaunch: function() {
     // 登录
@@ -26,4 +25,4 @@ App({
   globalData: {
     userInfo: null
   }
-})
+});

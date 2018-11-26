@@ -1,24 +1,25 @@
-//index.js
 //获取应用实例
 const app = getApp();
-const requests = require('../../utils/requests.js');
 const utils = require('../../utils/util.js');
 
 Page({
   data: {
-    motto: 'Hello World',
+    motto: '在路上永远年轻 永远热泪盈眶',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  //事件处理函数
-  bindViewTap() {
-    requests.getGoods().then(response => {
-      console.log(response);
-    }).catch(error => {
-      console.log(error);
+  /**
+   * 开启小程序之旅
+   */
+  open() {
+    wx.switchTab({
+      url: '/pages/main/main',
     });
   },
+  /**
+   * 生命周期函数--监听页面加载
+   */
   onLoad: function() {
     if (app.globalData.userInfo) {
       this.setData({
@@ -44,13 +45,14 @@ Page({
       });
     }
   },
+  /**
+   * 获取微信用户信息
+   */
   getUserInfo: function(response) {
-    console.log(1)
-    console.log(response);
     app.globalData.userInfo = response.detail.userInfo;
     this.setData({
       userInfo: response.detail.userInfo,
       hasUserInfo: true
     });
   }
-})
+});
