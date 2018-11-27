@@ -11,7 +11,7 @@
     </swiper-item>
   </swiper>
 
-  <block wx:for='{{articles.data}}' wx:key='{{item.articleId}}'>
+  <block wx:for='{{articles}}' wx:key='{{item.articleId}}'>
     <article title='{{item.title}}' avatar='{{item.avatar}}' imgSrc='{{item.imgSrc}}' reading='{{item.reading}}' brief='{{item.content}}' date='{{item.date}}' collection='{{item.collection}}' articleId='{{item.articleId}}'>
     </article>
   </block>

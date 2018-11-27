@@ -1,4 +1,4 @@
-const data = require('../../data/data.js');
+const requests = require('../../utils/requests.js');
 
 Page({
 
@@ -13,10 +13,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.setData({
-      articles: data
+    requests.getData().then(response => {
+      var articles = response.data.articles;
+      this.setData({
+        articles
+      });
+    }).catch(error => {
+      console.log(error);
     });
-    console.log(this.data.articles)
   },
 
   /**
