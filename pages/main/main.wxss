@@ -8,8 +8,7 @@ swiper image {
   height: 400rpx;
 }
 
-.headerimg {
-  width: 200rpx;
-  height: 200rpx;
-  margin-bottom: 40rpx;
+.btn-container {
+  width: 40%;
+  margin: 20px auto;
 }

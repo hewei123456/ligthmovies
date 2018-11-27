@@ -11,11 +11,8 @@
     </swiper-item>
   </swiper>
 
-  <button bindtap="showDialog">Click Me!</button>
-
-  <dialog id='dialog' title='dialog' content='恭喜你，学会了小程序组件' bind:cancelEvent="_cancelEvent" bind:confirmEvent="_confirmEvent">
-  </dialog>
-
-
-  <view animation="{{animationData}}" style="background:red;height:100rpx;width:100rpx"></view>
+  <block wx:for='{{articles.data}}' wx:key='{{item.articleId}}'>
+    <article title='{{item.title}}' avatar='{{item.avatar}}' imgSrc='{{item.imgSrc}}' reading='{{item.reading}}' brief='{{item.content}}' date='{{item.date}}' collection='{{item.collection}}' articleId='{{item.articleId}}'>
+    </article>
+  </block>
 </view>

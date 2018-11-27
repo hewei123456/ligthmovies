@@ -1,13 +1,10 @@
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-      <button size="mini" bindtap="open" class="mini-btn">开启小程序之旅</button>
-    </block>
+<view class='container'>
+  <view class='custom-btn-container' wx:if='{{!hasUserInfo && canIUse}}'>
+    <button open-type='getUserInfo' bindgetuserinfo='getUserInfo' class='custom-btn'> 获取头像昵称 </button>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+  <block wx:else>
+    <image src='{{userInfo.avatarUrl}}' class='user-avatar'></image>
+    <text class='user-name'>Hello, <text style='color: #F56C6C;'>{{userInfo.nickName}}</text></text>
+    <button bindtap='onOpenTap' class='custom-btn'> 开启小程序之旅 </button>
+  </block>
 </view>

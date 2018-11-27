@@ -1,22 +1,18 @@
-const data = require('../../data/data.js');
-
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    articles: []
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.setData({
-      articles: data
-    });
-    console.log(this.data.articles)
+    var articleId = parseInt(options.articleId);
+    console.log(articleId);
   },
 
   /**
@@ -66,20 +62,5 @@ Page({
    */
   onShareAppMessage: function() {
 
-  },
-
-  /**
-   * methods
-   */
-  handleClick() {
-    wx.showActionSheet({
-      itemList: ['A', 'B', 'C'],
-      success(res) {
-        console.log(res.tapIndex)
-      },
-      fail(res) {
-        console.log(res.errMsg)
-      }
-    });
   }
 })

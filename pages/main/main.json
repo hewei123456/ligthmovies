@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "花与剑",
   "usingComponents": {
-    "dialog": "/components/Dialog/dialog"
+    "article": "/components/Main/Article/article"
   }
 }
