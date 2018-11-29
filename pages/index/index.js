@@ -13,7 +13,7 @@ Page({
    * 开启小程序之旅
    */
   onOpenTap() {
-    wx.switchTab({
+    wx.switchTab({ 
       url: '/pages/main/main',
     });
   },
