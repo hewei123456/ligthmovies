@@ -6,8 +6,8 @@ App({
     wx.login({
       success: response => {
         console.log(response);
-      }
-    })
+      } 
+    });
     // 获取用户信息
     wx.getSetting({
       success: response => {
@@ -23,6 +23,7 @@ App({
     });
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    baseUrl:'http://127.0.0.1:3000'
   }
 });

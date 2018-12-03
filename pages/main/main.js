@@ -1,4 +1,6 @@
 const requests = require('../../utils/requests.js');
+const utils = require('../../utils/util.js');
+const app = getApp();
 
 Page({
 
@@ -15,6 +17,11 @@ Page({
   onLoad: function(options) {
     requests.getData().then(response => {
       var articles = response.data.articles;
+      articles.forEach(item => {
+        item.avatar = utils.handlePicPath(app.globalData.baseUrl, item.avatar);
+        item.imgSrc = utils.handlePicPath(app.globalData.baseUrl, item.imgSrc);
+      });
+      console.log(articles);
       this.setData({
         articles
       });

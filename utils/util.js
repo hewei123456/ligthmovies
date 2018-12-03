@@ -27,7 +27,12 @@ const getUserInfo = (app) => {
   });
 };
 
+const handlePicPath = (base, path) => {
+  return base + path.slice(1);
+};
+
 module.exports = {
   formatTime,
-  getUserInfo
+  getUserInfo,
+  handlePicPath
 }
