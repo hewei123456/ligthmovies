@@ -1,48 +1,39 @@
-const token = '123456';
-// const token = '123456';
 // const baseUrl = 'https://hewei.picp.vip/api/';
 const baseUrl = 'http://127.0.0.1:3000/api/';
 
-const articlesApi = baseUrl + 'userInfo';
-const loginApi = baseUrl + 'login';
+const loginApi = baseUrl + 'signin';
+const userinfoApi = baseUrl + 'userinfo';
+const articlesApi = baseUrl + 'articles';
 
 const http = (url, data, method) => {
   wx.showLoading({
     title: '加载中...'
   });
-  // var token;
-  // try {
-  //   token = wx.getStorageSync('token');
-  // } catch (error) { 
-  //   console.log(error);
-  // }
   return new Promise((resolve, reject) => {
     wx.request({
       url,
       data,
       header: {
-        'Authorization': `JWT ${token}`
+        'Authorization': `Bearer ${wx.getStorageSync('token')}`
       },
       method,
       success(response) {
-        // switch (response.statusCode) {
-        //   case 401:
-        //     console.log('您没有登录');
-        //     wx.navigateTo({
-        //       url: '/pages/index/index'
-        //     });
-        //     break;
-        //   case 403:
-        //     console.log('您没有该操作权限');
-        //     break;
-        //   case 500:
-        //     console.log('服务器错误');
-        //     break;
-        //   default:
-        //     resolve(response);
-        // }
-        resolve(response);
-
+        switch (response.statusCode) {
+          case 401:
+            console.log('您没有登录');
+            wx.navigateTo({
+              url: '/pages/index/index'
+            });
+            break;
+          case 403:
+            console.log('您没有该操作权限');
+            break;
+          case 500:
+            console.log('服务器错误');
+            break;
+          default:
+            resolve(response);
+        }
       },
       fail(error) {
         reject(error);
@@ -54,19 +45,24 @@ const http = (url, data, method) => {
   });
 };
 
-const login = (username, password) => {
+const login = (email, passwd) => {
   return http(loginApi, {
-    username,
-    password
+    email,
+    passwd
   }, 'POST');
 };
 
-const getData = () => {
+const getUserinfo = () => {
+  return http(userinfoApi, {}, 'GET');
+};
+
+const getArticles = () => {
   return http(articlesApi, {}, 'GET');
 };
 
-module.exports = { 
+module.exports = {
   baseUrl,
   login,
-  getData
+  getUserinfo,
+  getArticles
 };

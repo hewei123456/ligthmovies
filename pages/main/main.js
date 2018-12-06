@@ -13,21 +13,9 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  async onLoad(options) {
-    try {
-      var response = await requests.getData();
-      console.log(response)
-      // var articles = response.data.articles;
-      // articles.forEach(item => {
-      //   item.avatar = utils.handlePicPath(requests.baseUrl, item.avatar);
-      //   item.imgSrc = utils.handlePicPath(requests.baseUrl, item.imgSrc);
-      // });
-      // this.setData({
-      //   articles
-      // });
-    } catch (error) {
-      console.log(error);
-    }
+  onLoad(options) {
+    this.getUserinfo();
+    this.getArticles();
   },
 
   /**
@@ -92,5 +80,29 @@ Page({
         console.log(res.errMsg)
       }
     });
+  },
+  async getUserinfo() {
+    try {
+      var response = await requests.getUserinfo();
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  async getArticles() {
+    try {
+      var response = await requests.getArticles();
+      console.log(response);
+      var articles = response.data.articles;
+      articles.forEach(item => {
+        item.avatar = utils.handlePicPath(requests.baseUrl, item.avatar);
+        item.imgSrc = utils.handlePicPath(requests.baseUrl, item.imgSrc);
+      });
+      this.setData({
+        articles
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 });

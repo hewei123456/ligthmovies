@@ -15,15 +15,15 @@ Page({
    * 开启小程序之旅
    */
   async onOpenTap() {
-    wx.switchTab({
-      url: '/pages/main/main',
-    });
-    // try {
-    //   var response = await requests.login('hwjf123456@sina.com', 'aijiangfen65813');
-    //   console.log(response);
-    // } catch (error) {
-    //   console.log(error);
-    // }
+    try {
+      var response = await requests.login('hwjf123456@sina.cn', 'aijiangfen65813');
+      wx.setStorageSync('token', response.data.token);
+      wx.switchTab({
+        url: '/pages/main/main',
+      });
+    } catch (error) {
+      console.log(error);
+    }
   },
   /**
    * 生命周期函数--监听页面加载
