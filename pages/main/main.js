@@ -1,9 +1,8 @@
+import regeneratorRuntime from '../../packages/regenerator-runtime/runtime.js'
 const requests = require('../../utils/requests.js');
 const utils = require('../../utils/util.js');
-const app = getApp();
 
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -14,20 +13,21 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
-    requests.getData().then(response => {
-      var articles = response.data.articles;
-      articles.forEach(item => {
-        item.avatar = utils.handlePicPath(app.globalData.baseUrl, item.avatar);
-        item.imgSrc = utils.handlePicPath(app.globalData.baseUrl, item.imgSrc);
-      });
-      console.log(articles);
-      this.setData({
-        articles
-      });
-    }).catch(error => {
+  async onLoad(options) {
+    try {
+      var response = await requests.getData();
+      console.log(response)
+      // var articles = response.data.articles;
+      // articles.forEach(item => {
+      //   item.avatar = utils.handlePicPath(requests.baseUrl, item.avatar);
+      //   item.imgSrc = utils.handlePicPath(requests.baseUrl, item.imgSrc);
+      // });
+      // this.setData({
+      //   articles
+      // });
+    } catch (error) {
       console.log(error);
-    });
+    }
   },
 
   /**
@@ -93,4 +93,4 @@ Page({
       }
     });
   }
-})
+});

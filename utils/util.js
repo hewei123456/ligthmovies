@@ -28,6 +28,7 @@ const getUserInfo = (app) => {
 };
 
 const handlePicPath = (base, path) => {
+  [base] = base.split('/api/');
   return base + path.slice(1);
 };
 

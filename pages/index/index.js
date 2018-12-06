@@ -1,6 +1,8 @@
 //获取应用实例
 const app = getApp();
 const utils = require('../../utils/util.js');
+const requests = require('../../utils/requests.js');
+import regeneratorRuntime from '../../packages/regenerator-runtime/runtime.js'
 
 Page({
   data: {
@@ -12,10 +14,16 @@ Page({
   /**
    * 开启小程序之旅
    */
-  onOpenTap() {
-    wx.switchTab({ 
+  async onOpenTap() {
+    wx.switchTab({
       url: '/pages/main/main',
     });
+    // try {
+    //   var response = await requests.login('hwjf123456@sina.com', 'aijiangfen65813');
+    //   console.log(response);
+    // } catch (error) {
+    //   console.log(error);
+    // }
   },
   /**
    * 生命周期函数--监听页面加载
