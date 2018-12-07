@@ -1,3 +1,5 @@
+const requests = require('./requests.js')
+
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -27,8 +29,8 @@ const getUserInfo = (app) => {
   });
 };
 
-const handlePicPath = (base, path) => {
-  [base] = base.split('/api/');
+const handlePicPath = (path) => {
+  var [base] = requests.baseUrl.split('/api/');
   return base + path.slice(1);
 };
 

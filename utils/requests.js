@@ -2,17 +2,19 @@
 const baseUrl = 'http://127.0.0.1:3000/api/';
 
 const loginApi = baseUrl + 'signin';
-const userinfoApi = baseUrl + 'userinfo';
+const userinfoApi = baseUrl + 'userinfo';  
 const articlesApi = baseUrl + 'articles';
+const collectApi = baseUrl + 'collect';
+const checkCollectedApi = baseUrl + 'check_collected';
 
-const http = (url, data, method) => {
-  wx.showLoading({
+const http = (url, data, method) => { 
+  wx.showLoading({ 
     title: '加载中...'
   });
   return new Promise((resolve, reject) => {
     wx.request({
       url,
-      data,
+      data, 
       header: {
         'Authorization': `Bearer ${wx.getStorageSync('token')}`
       },
@@ -21,6 +23,7 @@ const http = (url, data, method) => {
         switch (response.statusCode) {
           case 401:
             console.log('您没有登录');
+            wx.clearStorageSync();
             wx.navigateTo({
               url: '/pages/index/index'
             });
@@ -60,9 +63,33 @@ const getArticles = () => {
   return http(articlesApi, {}, 'GET');
 };
 
+const getArticleDetail = (articleId) => {
+  return http(articlesApi + '/' + articleId, {}, 'GET');
+};
+
+const checkCollected = (articleId) => {
+  return http(checkCollectedApi, {
+    articleId
+  }, 'POST');
+};
+
+const collectArticle = (articleId) => {
+  return http(collectApi, {
+    articleId
+  }, 'POST');
+};
+
+const cancelCollection = (id) => {
+  return http(collectApi + '/' + id, {}, 'DELETE');
+};
+
 module.exports = {
   baseUrl,
   login,
   getUserinfo,
-  getArticles
+  getArticles,
+  getArticleDetail,
+  checkCollected,
+  collectArticle,
+  cancelCollection
 };

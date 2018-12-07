@@ -1,14 +1,14 @@
 <view>
   <!-- 轮播图 -->
-  <swiper indicator-dots='true' autoplay='true' interval='3600' catchtap='onSwiperTap'>
-    <swiper-item wx:for='{{articles}}' wx:key='{{item.articleId}}'>
+  <swiper indicator-dots='true' autoplay='true' interval='3600' current="{{swiperIndex}}">
+    <swiper-item wx:for='{{articles}}' wx:key='{{item.articleId}}' bindtap='onSwiperTap'>
       <image src='{{item.imgSrc}}' data-postId='2'></image>
     </swiper-item>
   </swiper>
 
   <!-- 文章列表 -->
-  <block wx:for='{{articles}}' wx:key='{{item.articleId}}'>
-    <article title='{{item.title}}' avatar='{{item.avatar}}' imgSrc='{{item.imgSrc}}' reading='{{item.reading}}' brief='{{item.content}}' date='{{item.date}}' collection='{{item.collection}}' articleId='{{item.articleId}}'>
+  <block wx:for='{{articles}}' wx:key='{{item.id}}'>
+    <article title='{{item.title}}' avatar='{{item.avatar}}' imgSrc='{{item.imgSrc}}' reading='{{item.reading}}' brief='{{item.content}}' date='{{item.date}}' collection='{{item.collection}}' articleId='{{item.id}}'>
     </article>
   </block>
 </view>

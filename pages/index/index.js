@@ -12,20 +12,6 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   /**
-   * 开启小程序之旅
-   */
-  async onOpenTap() {
-    try {
-      var response = await requests.login('hwjf123456@sina.cn', 'aijiangfen65813');
-      wx.setStorageSync('token', response.data.token);
-      wx.switchTab({
-        url: '/pages/main/main',
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  },
-  /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function() {
@@ -52,15 +38,50 @@ Page({
         });
       });
     }
+    try {
+      var token = wx.getStorageSync('token')
+      if (token) {
+        wx.switchTab({
+          url: '/pages/main/main',
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
   },
   /**
-   * 获取微信用户信息
+   * methods
    */
+
+  // 获取微信用户信息  
   getUserInfo: function(response) {
     app.globalData.userInfo = response.detail.userInfo;
     this.setData({
       userInfo: response.detail.userInfo,
       hasUserInfo: true
     });
+  },
+
+  // 开启小程序之旅
+  async onOpenTap() {
+    try {
+      var response = await requests.login('hwjf123456@sina.cn', 'aijiangfen65813');
+      wx.setStorageSync('token', response.data.token);
+      this.getUserinfo();
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  // 从后台获取用户信息 
+  async getUserinfo() {
+    try {
+      await requests.getUserinfo();
+      wx.switchTab({
+        url: '/pages/main/main',
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 });

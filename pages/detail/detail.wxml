@@ -1,2 +1,23 @@
-<!--pages/detail/detail.wxml-->
-<text>pages/detail/detail.wxml</text>
+<view class='container'>
+  <image class='head-image' src='{{dict.imgSrc}}'></image>
+  <image catchtap='onMusicTap' src="{{isPlayingMusic?'/images/music/music-stop.png ':'/images/music/music-start.png'}}" class='audio'>
+  </image>
+  <view class='author-date'>
+    <image class='avatar' src='{{dict.avatar}}'></image>
+    <text class='author'>{{dict.author}}</text>
+    <text class='const-text'>发表于</text>
+    <text class='const-text'>{{dict.createdAt}}</text>
+  </view>
+  <text class='title'>{{dict.title}}</text>
+  <view class='tool'>
+    <view class='circle-img'>
+      <image wx:if="{{collected}}" catchtap="onCancelTap" src='/images/icon/collection.png'> </image>
+      <image wx:else catchtap="onCollecTap" src='/images/icon/collection-anti.png'> </image>
+      <image catchtap="onShareTap" class='share-img' src='/images/icon/share.png'> </image>
+    </view>
+    <view class='horizon'></view>
+  </view>
+  <text class='detail'>
+    {{dict.detail}}
+  </text>
+</view>

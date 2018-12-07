@@ -4,8 +4,8 @@ Component({
    */
   properties: {
     articleId: {
-      type: Number,
-      value: null
+      type: String,
+      value: ''
     },
 
     title: {
