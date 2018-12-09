@@ -42,7 +42,7 @@ Page({
       var token = wx.getStorageSync('token')
       if (token) {
         wx.switchTab({
-          url: '/pages/main/main',
+          url: '/pages/movies/movies',
         });
       }
     } catch (error) {
@@ -62,7 +62,7 @@ Page({
     });
   },
 
-  // 开启小程序之旅
+  // 开启小程序之旅 
   async onOpenTap() {
     try {
       var response = await requests.login('hwjf123456@sina.cn', 'aijiangfen65813');

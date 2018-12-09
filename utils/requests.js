@@ -2,19 +2,22 @@
 const baseUrl = 'http://127.0.0.1:3000/api/';
 
 const loginApi = baseUrl + 'signin';
-const userinfoApi = baseUrl + 'userinfo';  
+const userinfoApi = baseUrl + 'userinfo';
 const articlesApi = baseUrl + 'articles';
 const collectApi = baseUrl + 'collect';
-const checkCollectedApi = baseUrl + 'check_collected';
+const collectedApi = baseUrl + 'collected';
+const searchApi = baseUrl + 'movies/search';
+const filterApi = baseUrl + 'movies/filter';
+const movieApi = baseUrl + 'movies/movie';
 
-const http = (url, data, method) => { 
-  wx.showLoading({ 
+const http = (url, data, method) => {
+  wx.showLoading({
     title: '加载中...'
   });
   return new Promise((resolve, reject) => {
     wx.request({
       url,
-      data, 
+      data,
       header: {
         'Authorization': `Bearer ${wx.getStorageSync('token')}`
       },
@@ -68,9 +71,9 @@ const getArticleDetail = (articleId) => {
 };
 
 const checkCollected = (articleId) => {
-  return http(checkCollectedApi, {
+  return http(collectedApi, {
     articleId
-  }, 'POST');
+  }, 'GET');
 };
 
 const collectArticle = (articleId) => {
@@ -83,6 +86,26 @@ const cancelCollection = (id) => {
   return http(collectApi + '/' + id, {}, 'DELETE');
 };
 
+const searchMovies = (keywords) => {
+  return http(searchApi, {
+    keywords
+  }, 'GET');
+};
+
+const filterMovies = (start, count, type) => {
+  return http(filterApi, {
+    start,
+    count,
+    type
+  }, 'GET');
+};
+
+const getMovieDetail = (id) => {
+  return http(movieApi, {
+    id
+  }, 'GET');
+};
+
 module.exports = {
   baseUrl,
   login,
@@ -91,5 +114,8 @@ module.exports = {
   getArticleDetail,
   checkCollected,
   collectArticle,
-  cancelCollection
+  cancelCollection,
+  searchMovies,
+  filterMovies,
+  getMovieDetail
 };

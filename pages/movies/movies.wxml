@@ -1,3 +1,44 @@
-<view>
-  光与影
+<view class='search'>
+  <icon type='search' size='13' color='#405f80' class='search-img'></icon>
+  <input type='text' placeholder='血战钢锯岭' placeholder-class='placeholder' bindfocus='onBindFocus' bindchange='onBindChange' />
+</view>
+<view class='container'>
+  <view class="movies-template clearfix">
+    <view class='movie-head'>
+      <text class='slogan'>正在热映</text>
+      <view class='more' catchtap='onMoreTap' data-category="{{categoryTitle}}">
+        <text class='more-text'>更多</text>
+        <image src='/images/icon/arrow-right.png' class='more-img'></image>
+      </view>
+    </view>
+    <movie></movie>
+    <movie></movie>
+    <movie></movie>
+  </view>
+
+  <view class="movies-template clearfix">
+    <view class='movie-head'>
+      <text class='slogan'>即将上映</text>
+      <view class='more' catchtap='onMoreTap' data-category="{{categoryTitle}}">
+        <text class='more-text'>更多</text>
+        <image src='/images/icon/arrow-right.png' class='more-img'></image>
+      </view>
+    </view>
+    <movie></movie>
+    <movie></movie>
+    <movie></movie>
+  </view>
+
+  <view class="movies-template clearfix">
+    <view class='movie-head'>
+      <text class='slogan'>豆瓣top250</text>
+      <view class='more' catchtap='onMoreTap' data-category="{{categoryTitle}}">
+        <text class='more-text'>更多</text>
+        <image src='/images/icon/arrow-right.png' class='more-img'></image>
+      </view>
+    </view>
+    <movie></movie>
+    <movie></movie>
+    <movie></movie>
+  </view>
 </view>

@@ -3,14 +3,13 @@
     "pages/index/index",
     "pages/main/main",
     "pages/detail/detail",
-    "pages/movies/movies",
-    "pages/login/login"
+    "pages/movies/movies"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#405f80",
     "navigationBarTitleText": "光与影的频道",
-    "navigationBarTextStyle": "black" 
+    "navigationBarTextStyle": "white" 
   },
   "tabBar": {
     "borderStyle": "white",

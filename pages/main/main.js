@@ -26,7 +26,6 @@ Page({
   async getArticles() {
     try {
       var response = await requests.getArticles();
-      console.log(response);
       var articles = response.data.articles;
       articles.forEach(item => {
         item.avatar = utils.handlePicPath(item.avatar);
@@ -41,7 +40,6 @@ Page({
   },
 
   onSwiperTap() {
-    console.log(123)
     wx.navigateTo({
       url: '/pages/detail/detail?articleId=' + this.data.articles[this.data.swiperIndex].id
     });

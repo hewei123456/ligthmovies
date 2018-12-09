@@ -2,3 +2,12 @@ text {
   font-family: MicroSoft Yahei;
   font-size: 24rpx;
 }
+
+.clearfix::after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: ' ';
+  clear: both;
+  height: 0;
+}
