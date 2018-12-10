@@ -1,6 +1,7 @@
 const requests = require('./requests.js')
 
-const formatTime = date => {
+const formatTime = timestamp => {
+  var date = new Date(timestamp);
   const year = date.getFullYear()
   const month = date.getMonth() + 1
   const day = date.getDate()
@@ -13,6 +14,14 @@ const formatTime = date => {
 const formatNumber = n => {
   n = n.toString();
   return n[1] ? n : '0' + n;
+};
+
+const subStrByDigits = (str, digits) => {
+  var strNew = str;
+  if (strNew.length > digits) {
+    strNew = strNew.substring(0, digits) + '...';
+  }
+  return strNew;
 };
 
 const getUserInfo = (app) => {
@@ -29,13 +38,14 @@ const getUserInfo = (app) => {
   });
 };
 
-const handlePicPath = (path) => {
+const handlePath = (path) => {
   var [base] = requests.baseUrl.split('/api/');
   return base + path.slice(1);
 };
 
 module.exports = {
   formatTime,
+  subStrByDigits,
   getUserInfo,
-  handlePicPath
+  handlePath
 }

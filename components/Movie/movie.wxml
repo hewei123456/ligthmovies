@@ -1,5 +1,5 @@
 <view class='movie-container'>
-  <image src="http://127.0.0.1:3000/static/upload/bl.png" class='movie-img'></image>
-  <text class='movie-title'>鬼迷心窍</text>
+  <image src="{{cover}}" class='movie-img'></image>
+  <text class='movie-title'>{{title}}</text>
   <stars></stars>
 </view>

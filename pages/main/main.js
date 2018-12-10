@@ -28,8 +28,9 @@ Page({
       var response = await requests.getArticles();
       var articles = response.data.articles;
       articles.forEach(item => {
-        item.avatar = utils.handlePicPath(item.avatar);
-        item.imgSrc = utils.handlePicPath(item.imgSrc);
+        item.avatar = utils.handlePath(item.avatar);
+        item.imgSrc = utils.handlePath(item.imgSrc);
+        item.date = utils.formatTime(item.createdAt);
       });
       this.setData({
         articles

@@ -93,6 +93,7 @@ const searchMovies = (keywords) => {
 };
 
 const filterMovies = (start, count, type) => {
+  type = type ? type : null;
   return http(filterApi, {
     start,
     count,

@@ -9,16 +9,16 @@ Page({
    */
   data: {
     keywords: '',
-    type: '',
     start: 0,
-    count: 3
+    count: 3,
+    moviesList: []
   },
 
   /**
    * 生命周期函数--监听页面加载 
    */
   onLoad: function(options) {
-    this.getMovieDetail();
+    this.filterMovies();
   },
 
   /**
@@ -35,12 +35,33 @@ Page({
 
   async filterMovies() {
     try {
-      var response = await requests.filterMovies(this.data.start, this.data.count, this.data.type);
-      console.log(response); 
+      var response = await requests.filterMovies(this.data.start, this.data.count),
+        {
+          comingSoon,
+          inTheater,
+          top250
+        } = response.data.results;
+      var moviesList = [{
+        title: '正在热映',
+        type: 'inTeater',
+        data: this.handleData(inTheater)
+      }, {
+        title: '即将上映',
+        type: 'comingSoon',
+        data: this.handleData(comingSoon)
+      }, {
+        title: '豆瓣top250',
+        type: 'comingSoon',
+        data: this.handleData(top250)
+      }];
+      this.setData({
+        moviesList
+      });
+      console.log(this.data.moviesList);
     } catch (error) {
       console.log(error);
     }
-  }, 
+  },
 
   async getMovieDetail() {
     try {
@@ -49,6 +70,20 @@ Page({
     } catch (error) {
       console.log(error);
     }
+  },
+
+  handleData(data) {
+    var list = [];
+    data.forEach(item => {
+      list.push({
+        cover: item.images.large,
+        rating: item.rating.average,
+        stars: parseInt(item.rating.average / 2),
+        title: utils.subStrByDigits(item.title, 7),
+        id: item.id
+      });
+    });
+    return list;
   },
 
   /**

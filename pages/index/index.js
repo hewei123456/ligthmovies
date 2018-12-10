@@ -42,7 +42,7 @@ Page({
       var token = wx.getStorageSync('token')
       if (token) {
         wx.switchTab({
-          url: '/pages/movies/movies',
+          url: '/pages/main/main',
         });
       }
     } catch (error) {

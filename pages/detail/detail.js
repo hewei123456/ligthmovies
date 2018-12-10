@@ -68,8 +68,9 @@ Page({
   async getArticleDetail(articleId) {
     try {
       var response = await requests.getArticleDetail(articleId);
-      response.data.avatar = utils.handlePicPath(response.data.avatar);
-      response.data.imgSrc = utils.handlePicPath(response.data.imgSrc);
+      response.data.avatar = utils.handlePath(response.data.avatar);
+      response.data.imgSrc = utils.handlePath(response.data.imgSrc);
+      response.data.music.url = utils.handlePath(response.data.music.url);
       this.setData({
         dict: response.data
       });
@@ -130,7 +131,7 @@ Page({
       backgroundAudioManager.title = music.title;
       backgroundAudioManager.epname = music.title;
       backgroundAudioManager.singer = music.author ? music.author : '未知';
-      backgroundAudioManager.coverImgUrl = utils.handlePicPath(music.coverImg);
+      backgroundAudioManager.coverImgUrl = utils.handlePath(music.coverImg);
       backgroundAudioManager.src = music.url;
       backgroundAudioManager.play();
     }
