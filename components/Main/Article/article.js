@@ -6,7 +6,7 @@ Component({
     articleId: {
       type: String,
       value: ''
-    },
+    }, 
 
     title: {
       type: String,

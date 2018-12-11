@@ -1,6 +1,6 @@
-<view class='search' bindtap='jumpToSearch'>
+<view class='search'>
   <icon type='search' size='13' color='#405f80' class='search-img'></icon>
-  <input type='text' placeholder='血战钢锯岭' placeholder-class='placeholder' bindfocus='onBindFocus' bindchange='onBindChange' />
+  <input type='text' placeholder='血战钢锯岭' placeholder-class='placeholder' bindfocus='jumpToSearch' />
 </view>
 <view class='container'>
   <view class="movies-template clearfix" wx:for="{{moviesList}}" wx:key='{{item.type}}'>

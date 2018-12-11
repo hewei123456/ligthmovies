@@ -34,4 +34,11 @@ Page({
       console.log(error);
     }
   },
+
+  onBindConfirm(event) {
+    this.setData({
+      keywords: event.detail.value
+    });
+    this.searchMovies();
+  }
 });

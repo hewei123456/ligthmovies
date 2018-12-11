@@ -70,7 +70,7 @@ Page({
 
   // 开启小程序之旅 
   async onOpenTap() {
-    try {
+    try { 
       var response = await requests.login('hwjf123456@sina.cn', 'aijiangfen65813');
       wx.setStorageSync('token', response.data.token);
       this.getUserinfo();
@@ -80,7 +80,7 @@ Page({
   },
 
   // 从后台获取用户信息 
-  async getUserinfo() {
+  async getUserinfo() { 
     try {
       await requests.getUserinfo();
       wx.switchTab({
