@@ -1,0 +1,10 @@
+<view class='search' bindtap='jumpToSearch'>
+  <icon type='search' size='13' color='#405f80' class='search-img'></icon>
+  <input type='text' placeholder='血战钢锯岭' placeholder-class='placeholder' bindfocus='onBindFocus' bindchange='onBindChange' />
+</view>
+
+<view class='movie-row'>
+  <view wx:for='{{movies}}' wx:key='{{item.id}}' class='movie-col'>
+    <movie movieId='{{item.id}}' cover='{{item.cover}}' rating='{{item.rating}}' stars='{{item.stars}}' title='{{item.title}}'></movie>
+  </view>
+</view>

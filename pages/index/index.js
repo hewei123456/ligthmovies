@@ -87,7 +87,6 @@ Page({
         url: '/pages/main/main',
         success(e) {
           var page = getCurrentPages().pop();
-          console.log(page);
           if (!page)
             return;
           page.onLoad();

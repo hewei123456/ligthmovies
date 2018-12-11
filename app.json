@@ -6,6 +6,7 @@
     "pages/movies/movies",
     "pages/movie/movie",
     "pages/more/more",
+    "pages/search/search",
     "pages/mine/mine"
   ],
   "window": {
