@@ -9,7 +9,7 @@ Page({
   data: {
     articles: [],
     swiperIndex: 0
-  },
+  }, 
 
   /**
    * 生命周期函数--监听页面加载
@@ -21,7 +21,6 @@ Page({
   /**
    * methods
    */
-
   // 获取文章列表 
   async getArticles() {
     try {

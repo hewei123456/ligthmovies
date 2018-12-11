@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/main/main",
     "pages/detail/detail",
-    "pages/movies/movies"
+    "pages/movies/movies",
+    "pages/movie/movie"
   ],
   "window": {
     "backgroundTextStyle": "light",

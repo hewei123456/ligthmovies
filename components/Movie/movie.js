@@ -20,27 +20,29 @@ Component({
     },
 
     stars: {
-      type: Number,
-      value: 0
+      type: Array,
+      value: [0, 0, 0, 0, 0]
     },
 
     rating: {
       type: Number,
-      value: 0
+      value: 0.0
     }
   },
 
   /**
    * 组件的初始数据
    */
-  data: {
-
-  },
+  data: {},
 
   /**
    * 组件的方法列表
    */
   methods: {
-
+    jumpToDetail() {
+      wx.navigateTo({
+        url: '/pages/movie/movie?movieId=' + this.data.movieId
+      });
+    }
   }
 })

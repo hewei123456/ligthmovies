@@ -1,5 +1,5 @@
-<view class='movie-container'>
+<view class='movie-container' bindtap='jumpToDetail'>
   <image src="{{cover}}" class='movie-img'></image>
   <text class='movie-title'>{{title}}</text>
-  <stars></stars>
+  <stars stars='{{stars}}' rating='{{rating}}'></stars>
 </view>

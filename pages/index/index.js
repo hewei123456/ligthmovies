@@ -43,8 +43,14 @@ Page({
       if (token) {
         wx.switchTab({
           url: '/pages/main/main',
+          success(e) {
+            var page = getCurrentPages().pop();
+            if (!page)
+              return;
+            page.onLoad();
+          }
         });
-      }
+      } 
     } catch (error) {
       console.log(error);
     }
@@ -79,6 +85,13 @@ Page({
       await requests.getUserinfo();
       wx.switchTab({
         url: '/pages/main/main',
+        success(e) {
+          var page = getCurrentPages().pop();
+          console.log(page);
+          if (!page)
+            return;
+          page.onLoad();
+        }
       });
     } catch (error) {
       console.log(error);

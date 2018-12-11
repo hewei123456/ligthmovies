@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "光与影",
+  "usingComponents": {
+    "stars": "/components/Stars/stars"
+  }
+}

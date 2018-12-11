@@ -5,5 +5,5 @@
       <image wx:else src='/images/icon/none-star.png'></image>
     </block>
   </view>
-  <text class='star-score'>9.5</text>
+  <text class='star-score'>{{rating}}</text>
 </view>

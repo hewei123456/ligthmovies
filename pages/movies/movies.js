@@ -78,7 +78,7 @@ Page({
       list.push({
         cover: item.images.large,
         rating: item.rating.average,
-        stars: parseInt(item.rating.average / 2),
+        stars: utils.convertToStarsArray(item.rating.stars),
         title: utils.subStrByDigits(item.title, 7),
         id: item.id
       });

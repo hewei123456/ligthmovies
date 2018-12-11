@@ -1,6 +1,7 @@
-page{
+page {
   background-color: #f2f2f2;
 }
+
 .search {
   height: 80rpx;
   width: 100%;
@@ -29,7 +30,6 @@ page{
   margin-bottom: 30rpx;
   display: flex;
   flex-wrap: wrap;
-  padding-left: 8rpx;
   box-sizing: border-box;
   background-color: white;
 }
@@ -55,4 +55,15 @@ page{
 .more-img {
   width: 9rpx;
   height: 16rpx;
+}
+
+.movie-row {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.movie-col {
+  width: 33.33%;
 }
