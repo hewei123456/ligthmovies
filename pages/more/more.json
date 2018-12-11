@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "光影频道",
+  "navigationBarTitleText": "更多",
   "usingComponents": {
     "movie": "/components/Movie/movie"
   }

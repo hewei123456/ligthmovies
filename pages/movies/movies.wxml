@@ -6,7 +6,7 @@
   <view class="movies-template clearfix" wx:for="{{moviesList}}" wx:key='{{item.type}}'>
     <view class='movie-head'>
       <text class='slogan'>{{item.title}}</text>
-      <view class='more'>
+      <view class='more' bindtap='jumpToMore'  data-type="{{item.type}}">
         <text class='more-text'>更多</text>
         <image src='/images/icon/arrow-right.png' class='more-img'></image>
       </view>

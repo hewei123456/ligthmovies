@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "花与剑",
+  "navigationBarTitleText": "阅读频道",
   "usingComponents": {
     "article": "/components/Main/Article/article"
   }

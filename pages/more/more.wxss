@@ -1,0 +1,9 @@
+.movie-row {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movie-col {
+  width: 33.33%;
+}

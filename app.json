@@ -4,7 +4,9 @@
     "pages/main/main",
     "pages/detail/detail",
     "pages/movies/movies",
-    "pages/movie/movie"
+    "pages/movie/movie",
+    "pages/more/more",
+    "pages/mine/mine"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -26,6 +28,12 @@
         "text": "电影",
         "iconPath": "images/tab/dianying.png",
         "selectedIconPath": "images/tab/dianying_hl.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "images/tab/ciwei.png",
+        "selectedIconPath": "images/tab/ciwei_hl.png"
       }
     ]
   }

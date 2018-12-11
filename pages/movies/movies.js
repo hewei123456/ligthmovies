@@ -43,16 +43,16 @@ Page({
         } = response.data.results;
       var moviesList = [{
         title: '正在热映',
-        type: 'inTeater',
-        data: this.handleData(inTheater)
+        type: 'inTheater',
+        data: utils.handleData(inTheater)
       }, {
         title: '即将上映',
         type: 'comingSoon',
-        data: this.handleData(comingSoon)
+          data: utils.handleData(comingSoon)
       }, {
         title: '豆瓣top250',
         type: 'comingSoon',
-        data: this.handleData(top250)
+          data: utils.handleData(top250)
       }];
       this.setData({
         moviesList
@@ -72,18 +72,11 @@ Page({
     }
   },
 
-  handleData(data) {
-    var list = [];
-    data.forEach(item => {
-      list.push({
-        cover: item.images.large,
-        rating: item.rating.average,
-        stars: utils.convertToStarsArray(item.rating.stars),
-        title: utils.subStrByDigits(item.title, 7),
-        id: item.id
-      });
+  jumpToMore(event) {
+    var type = event.currentTarget.dataset.type;
+    wx.navigateTo({
+      url: '/pages/more/more?type=' + type,
     });
-    return list;
   },
 
   /**

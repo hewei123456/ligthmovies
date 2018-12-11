@@ -1,0 +1,5 @@
+<view class='movie-row'>
+  <view wx:for='{{movies}}' wx:key='{{item.id}}' class='movie-col'>
+    <movie movieId='{{item.id}}' cover='{{item.cover}}' rating='{{item.rating}}' stars='{{item.stars}}' title='{{item.title}}'></movie>
+  </view>
+</view>

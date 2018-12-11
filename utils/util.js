@@ -38,6 +38,20 @@ const getUserInfo = (app) => {
   });
 };
 
+const handleData = (data) => {
+  var list = [];
+  data.forEach(item => {
+    list.push({
+      cover: item.images.large,
+      rating: item.rating.average,
+      stars: convertToStarsArray(item.rating.stars),
+      title: subStrByDigits(item.title, 7),
+      id: item.id
+    });
+  });
+  return list;
+};
+
 const handlePath = (path) => {
   var [base] = requests.baseUrl.split('/api/');
   return base + path.slice(1);
@@ -84,6 +98,7 @@ module.exports = {
   subStrByDigits,
   getUserInfo,
   handlePath,
+  handleData,
   convertToStarsArray,
   convertToCastString,
   convertToCastInfos,
