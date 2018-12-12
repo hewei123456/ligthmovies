@@ -25,7 +25,7 @@ const http = (url, data, method) => {
       success(response) {
         switch (response.statusCode) {
           case 401:
-            console.log('您没有登录');
+            console.log('身份认证未通过');
             wx.clearStorageSync();
             wx.navigateTo({
               url: '/pages/index/index'
@@ -51,9 +51,9 @@ const http = (url, data, method) => {
   });
 };
 
-const login = (email, passwd) => {
+const login = (phone, passwd) => {
   return http(loginApi, {
-    email,
+    phone,
     passwd
   }, 'POST');
 };

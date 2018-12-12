@@ -71,7 +71,7 @@ Page({
   // 开启小程序之旅 
   async onOpenTap() {
     try { 
-      var response = await requests.login('hwjf123456@sina.cn', 'aijiangfen65813');
+      var response = await requests.login('13439093625', 'aijiangfen65813');
       wx.setStorageSync('token', response.data.token);
       this.getUserinfo();
     } catch (error) {
