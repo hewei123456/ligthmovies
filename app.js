@@ -2,13 +2,6 @@ const utils = require('./utils/util.js');
 
 App({
   onLaunch: function() {
-    // 登录
-    wx.login({
-      success: response => {
-        console.log(response);
-      }
-    });
-
     // 获取用户信息
     wx.getSetting({
       success: response => {

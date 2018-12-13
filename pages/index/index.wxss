@@ -17,17 +17,18 @@ page {
   transform: translate(-50%, -50%);
 }
 
+.signin {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 120rpx;
+  box-sizing: border-box;
+}
+
 .custom-btn {
-  margin-top: 100rpx;
-  border: 1px solid #405f80;
-  border-radius: 5px;
-  height: 80rpx;
-  line-height: 80rpx !important;
-  text-align: center;
-  background: transparent;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
   font-size: 24rpx;
-  font-weight: bold;
-  color: #405f80;
 }
 
 .user-avatar {

@@ -21,3 +21,16 @@ text {
 .movie-col {
   width: 33.33%;
 }
+
+.custom-btn {
+  margin-top: 100rpx;
+  border-radius: 5px;
+  width: 300rpx;
+  height: 80rpx;
+  line-height: 80rpx !important;
+  text-align: center;
+  background: transparent;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #405f80;
+}

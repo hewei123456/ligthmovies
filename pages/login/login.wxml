@@ -1,0 +1,6 @@
+<view class='custom-form'>
+  <image src='{{userInfo.avatarUrl}}' class='user-avatar'></image>
+  <input class='form-item' type='text' placeholder='请输入手机号...' placeholder-style='color: #405f80;'></input>
+  <input class='form-item' type='password' placeholder='请输入密码...' placeholder-style='color: #405f80;'></input>
+  <button bindtap='signin' class='custom-btn'> 登 陆 </button>
+</view>

@@ -50,7 +50,7 @@ Page({
             page.onLoad();
           }
         });
-      } 
+      }
     } catch (error) {
       console.log(error);
     }
@@ -68,19 +68,24 @@ Page({
     });
   },
 
-  // 开启小程序之旅 
-  async onOpenTap() {
-    try { 
-      var response = await requests.login('13439093625', 'aijiangfen65813');
-      wx.setStorageSync('token', response.data.token);
-      this.getUserinfo();
-    } catch (error) {
-      console.log(error);
-    }
+  // 微信登录
+  signin() {
+    wx.login({
+      success: response => {
+        console.log(response);
+      }
+    });
   },
 
-  // 从后台获取用户信息 
-  async getUserinfo() { 
+  // 开启小程序之旅 
+  jumpToLog() {
+    wx.navigateTo({
+      url: '/pages/login/login'
+    });
+  },
+
+  // 从后台获取用户信息  
+  async getUserinfo() {
     try {
       await requests.getUserinfo();
       wx.switchTab({
