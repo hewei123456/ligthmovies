@@ -31,6 +31,10 @@ page {
   font-size: 24rpx;
 }
 
+.open {
+  width: 250rpx;
+}
+
 .user-avatar {
   width: 200rpx;
   height: 200rpx;

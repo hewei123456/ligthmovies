@@ -10,7 +10,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: {}
+    userInfo: {},
+    phone: '',
+    passwd: ''
   },
 
   /**
@@ -31,9 +33,16 @@ Page({
   // 手机登陆
   async signin() {
     try {
-      var response = await requests.login('13439093625', 'aijiangfen65813');
-      wx.setStorageSync('token', response.data.token);
-      this.getUserinfo();
+      var response = await requests.login(this.data.phone, this.data.passwd);
+      if (response.data.signed) {
+        wx.setStorageSync('token', response.data.token);
+        this.getUserinfo();
+      } else
+        wx.showToast({
+          title: response.data.message,
+          icon: 'none',
+          duration: 1000
+        });
     } catch (error) {
       console.log(error);
     }
@@ -44,16 +53,22 @@ Page({
     try {
       await requests.getUserinfo();
       wx.switchTab({
-        url: '/pages/main/main',
-        success(e) {
-          var page = getCurrentPages().pop();
-          if (!page)
-            return;
-          page.onLoad();
-        }
+        url: '/pages/main/main'
       });
     } catch (error) {
       console.log(error);
     }
+  },
+
+  getPhone(e) {
+    this.setData({
+      phone: e.detail.value
+    });
+  },
+
+  getPasswd(e) {
+    this.setData({
+      passwd: e.detail.value
+    });
   }
 })

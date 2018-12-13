@@ -3,6 +3,14 @@ text {
   font-size: 24rpx;
 }
 
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
 .clearfix::after {
   visibility: hidden;
   display: block;

@@ -1,6 +1,6 @@
 <view class='search'>
   <icon type='search' size='13' color='#405f80' class='search-img'></icon>
-  <input type='text' placeholder='血战钢锯岭' auto-focus placeholder-class='placeholder' bindconfirm='onBindConfirm' />
+  <input type='text' placeholder='血战钢锯岭' focus placeholder-class='placeholder' bindconfirm='onBindConfirm' />
 </view>
 
 <view class='movie-row'>

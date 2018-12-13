@@ -25,11 +25,17 @@ const http = (url, data, method) => {
       success(response) {
         switch (response.statusCode) {
           case 401:
-            console.log('身份认证未通过');
-            wx.clearStorageSync();
-            wx.navigateTo({
-              url: '/pages/index/index'
+            wx.showToast({
+              title: response.data.message,
+              icon: 'none',
+              duration: 1000
             });
+            wx.clearStorageSync();
+            setTimeout(() => {
+              wx.navigateTo({
+                url: '/pages/index/index'
+              });
+            }, 1000);
             break;
           case 403:
             console.log('您没有该操作权限');
@@ -42,6 +48,11 @@ const http = (url, data, method) => {
         }
       },
       fail(error) {
+        wx.showToast({
+          title: '网络故障...',
+          icon: 'none',
+          duration: 1000
+        });
         reject(error);
       },
       complete() {

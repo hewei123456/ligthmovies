@@ -9,7 +9,8 @@ Page({
     motto: '在路上永远年轻 永远热泪盈眶',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    show: false
   },
   /**
    * 生命周期函数--监听页面加载
@@ -38,22 +39,7 @@ Page({
         });
       });
     }
-    try {
-      var token = wx.getStorageSync('token')
-      if (token) {
-        wx.switchTab({
-          url: '/pages/main/main',
-          success(e) {
-            var page = getCurrentPages().pop();
-            if (!page)
-              return;
-            page.onLoad();
-          }
-        });
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    this.getToken();
   },
   /**
    * methods
@@ -68,8 +54,15 @@ Page({
     });
   },
 
+  // 开启小程序之旅 
+  open() {
+    this.setData({
+      show: true
+    });
+  },
+
   // 微信登录
-  signin() {
+  wechat() {
     wx.login({
       success: response => {
         console.log(response);
@@ -77,11 +70,21 @@ Page({
     });
   },
 
-  // 开启小程序之旅 
-  jumpToLog() {
+  // 手机登录 
+  mobile() {
     wx.navigateTo({
       url: '/pages/login/login'
     });
+  },
+
+  getToken() {
+    try {
+      var token = wx.getStorageSync('token')
+      if (token)
+        this.getUserinfo();
+    } catch (error) {
+      console.log(error);
+    }
   },
 
   // 从后台获取用户信息  
@@ -89,16 +92,10 @@ Page({
     try {
       await requests.getUserinfo();
       wx.switchTab({
-        url: '/pages/main/main',
-        success(e) {
-          var page = getCurrentPages().pop();
-          if (!page)
-            return;
-          page.onLoad();
-        }
+        url: '/pages/main/main'
       });
     } catch (error) {
       console.log(error);
-    }
+    } 
   }
 });
