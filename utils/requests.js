@@ -29,7 +29,7 @@ const http = (url, data, method) => {
               title: response.data.message,
               icon: 'none',
               duration: 1000
-            });
+            }); 
             wx.clearStorageSync();
             setTimeout(() => {
               wx.navigateTo({
