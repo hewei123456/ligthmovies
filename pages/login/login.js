@@ -11,8 +11,8 @@ Page({
    */
   data: {
     userInfo: {},
-    phone: '',
-    passwd: ''
+    phone: '13439093625',
+    passwd: 'aijiangfen65813'
   },
 
   /**
