@@ -15,7 +15,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.4.0",
 	"appid": "wxa021bd3125f509ec",
-	"projectname": "newProject",
+	"projectname": "ReadMovies(native)",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
