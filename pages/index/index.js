@@ -52,27 +52,37 @@ Page({
       userInfo: response.detail.userInfo,
       hasUserInfo: true
     });
-  },
+  }, 
 
   // 开启小程序之旅 
   open() {
-    this.setData({
-      show: true
-    });
-  },
-
-  // 微信登录
-  wechat() {
     wx.login({
-      success: response => {
+      success: async response => {
         console.log(response);
+        if (response.code) {
+          try {
+            var res = await requests.wechatSignin(response.code)
+            if (res.data.signed) {
+              wx.setStorageSync('token', res.data.token);
+              this.getUserinfo();
+            } else
+              wx.showToast({
+                title: res.data.message,
+                icon: 'none',
+                duration: 1000
+              });
+          } catch (error) {
+            console.log(error);
+          }
+        } else
+          console.log("登录失败！" + res.errMsg);
       }
     });
   },
 
   // 手机登录 
   mobile() {
-    wx.navigateTo({ 
+    wx.navigateTo({
       url: '/pages/login/login'
     });
   },
@@ -96,6 +106,6 @@ Page({
       });
     } catch (error) {
       console.log(error);
-    } 
+    }
   }
 });

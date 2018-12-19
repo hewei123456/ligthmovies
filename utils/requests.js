@@ -2,6 +2,7 @@
 const baseUrl = 'http://127.0.0.1:3000/api/';
 
 const loginApi = baseUrl + 'signin';
+const wechatSigninApi = baseUrl + 'wechat/signin';
 const userinfoApi = baseUrl + 'userinfo';
 const articlesApi = baseUrl + 'articles';
 const collectApi = baseUrl + 'collect';
@@ -29,7 +30,7 @@ const http = (url, data, method) => {
               title: response.data.message,
               icon: 'none',
               duration: 1000
-            }); 
+            });
             wx.clearStorageSync();
             setTimeout(() => {
               wx.navigateTo({
@@ -66,6 +67,12 @@ const login = (phone, passwd) => {
   return http(loginApi, {
     phone,
     passwd
+  }, 'POST');
+};
+
+const wechatSignin = (code) => {
+  return http(wechatSigninApi, {
+    code
   }, 'POST');
 };
 
@@ -121,6 +128,7 @@ const getMovieDetail = (id) => {
 module.exports = {
   baseUrl,
   login,
+  wechatSignin,
   getUserinfo,
   getArticles,
   getArticleDetail,

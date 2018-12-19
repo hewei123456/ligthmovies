@@ -5,10 +5,6 @@
   <block wx:else>
     <image src='{{userInfo.avatarUrl}}' class='user-avatar'></image>
     <text class='user-name'>Hello, <text style='color: #F56C6C;'>{{userInfo.nickName}}</text></text>
-    <button bindtap='open' class='custom-btn open' wx:if='{{!show}}'> 开启小程序之旅 </button>
-    <view class='signin' wx:if='{{show}}'>
-      <button bindtap='mobile' class='custom-btn'> 手机号登陆 </button>
-      <button bindtap='wechat' class='custom-btn'> 微信登陆 </button>
-    </view>
+    <button bindtap='open' class='custom-btn open'> 开启光影之旅 </button>
   </block>
 </view>
