@@ -72,7 +72,7 @@ Page({
 
   // 手机登录 
   mobile() {
-    wx.navigateTo({
+    wx.navigateTo({ 
       url: '/pages/login/login'
     });
   },
