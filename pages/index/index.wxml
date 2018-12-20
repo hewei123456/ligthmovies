@@ -6,5 +6,8 @@
     <image src='{{userInfo.avatarUrl}}' class='user-avatar'></image>
     <text class='user-name'>Hello, <text style='color: #F56C6C;'>{{userInfo.nickName}}</text></text>
     <button bindtap='open' class='custom-btn open'> 开启光影之旅 </button>
+    <!-- <navigator url='/pages/link/link'>
+      <view class='list_item'>点击跳转</view>
+    </navigator> -->
   </block>
 </view>

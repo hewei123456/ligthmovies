@@ -1,6 +1,8 @@
 // const baseUrl = 'https://hewei.picp.vip/api/';
-const baseUrl = 'https://lightmovies.top/api/';
-// const baseUrl = 'http://127.0.0.1:3000/api/';
+// const baseUrl = 'https://lightmovies.top/api/';
+// const baseUrl = 'http://x2290n7883.imwork.net/api/';
+
+const baseUrl = 'http://127.0.0.1:3000/api/'; 
 
 const loginApi = baseUrl + 'signin';
 const wechatSigninApi = baseUrl + 'wechat/signin';
